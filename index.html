@@ -354,7 +354,7 @@
   </div>
 
   <script>
-    // Lista exata de convidados fornecida
+    // Lista exata de convidados fornecida (mantendo a ordem original)
     const guests = [
       "Raquel", "Ronaldo", "Nathânia", "Robson", "Ronnie", "Maria", 
       "Viviane", "Marcio", "Davi", "Aline", "Renato", "Felipe", 
@@ -364,7 +364,7 @@
       "Renato Peres", "José Luiz", "Giovana"
     ];
 
-    // Carregar convidados no Select
+    // Carregar convidados no Select ao carregar a página
     const selectElem = document.getElementById('guest-select');
     guests.forEach(guest => {
       const option = document.createElement('option');
@@ -389,47 +389,50 @@
 
     // Efeito de Confetes Contínuo suave
     setInterval(() => {
-      confetti({
-        particleCount: 2,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0, y: 0.8 },
-        colors: ['#FF66B2', '#FFD700', '#00BFFF']
-      });
-      confetti({
-        particleCount: 2,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1, y: 0.8 },
-        colors: ['#C71585', '#50C878', '#FFD700']
-      });
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 2,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0, y: 0.8 },
+          colors: ['#FF66B2', '#FFD700', '#00BFFF']
+        });
+        confetti({
+          particleCount: 2,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1, y: 0.8 },
+          colors: ['#C71585', '#50C878', '#FFD700']
+        });
+      }
     }, 2000);
 
     // RSVP Submit com integração para o WhatsApp
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = selectElem.value;
-      if(name) {
+      if (name) {
         // Dispara explosão de confetes ao confirmar
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
+        if (typeof confetti === "function") {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }
+        
         document.getElementById('rsvp-success').style.display = 'block';
 
-       // Envio para o WhatsApp (Dois Números)
-const phoneNumbers = ["5511954575058", "5511930095084"];
-const message = `Olá! Confirmando a presença de *${name}* no Aniversário de 3 Anos da Thalia! 🎈🎉`;
+        const phoneNumbers = ["5511954575058", "5511930095084"];
+        const message = `Olá! Confirmando a presença de *${name}* no Aniversário de 3 Anos da Thalia! 🎈🎉`;
 
-setTimeout(() => {
-  phoneNumbers.forEach(phone => {
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  });
+        setTimeout(() => {
+          phoneNumbers.forEach(phone => {
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+          });
 
-  document.getElementById('rsvp-success').style.display = 'none';
-}, 1000); // Exemplo de tempo no setTimeout
+          document.getElementById('rsvp-success').style.display = 'none';
         }, 1500);
       }
     });
@@ -446,8 +449,11 @@ setTimeout(() => {
 
     function copyPix() {
       const pixKey = "11954575058";
-      navigator.clipboard.writeText(pixKey);
-      alert("Chave PIX copiada: " + pixKey);
+      navigator.clipboard.writeText(pixKey).then(() => {
+        alert("Chave PIX copiada: " + pixKey);
+      }).catch(() => {
+        alert("Chave PIX: " + pixKey);
+      });
     }
   </script>
 </body>
