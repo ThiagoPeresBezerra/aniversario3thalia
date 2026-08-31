@@ -290,13 +290,13 @@
         <button type="submit">Confirmar Minha Presença 🎉</button>
       </form>
       <div id="rsvp-success" class="alert-success">
-        Presença confirmada com sucesso! Esperamos você! 🥳
+        Presença confirmada com sucesso! Redirecionando para o WhatsApp... 🥳
       </div>
     </section>
 
     <section>
       <h2>Lista de Presentes 🎁</h2>
-      <p style="text-align: center; color: #666;">Selecionamos alguns presentes que fariam nossa amada Thalia muito feliz::</p>
+      <p style="text-align: center; color: #666;">Selecionamos alguns presentes que fariam nossa amada Thalia muito feliz:</p>
       
       <div class="gifts-grid">
         <div class="gift-card">
@@ -405,7 +405,7 @@
       });
     }, 2000);
 
-    // RSVP Submit
+    // RSVP Submit com integração para o WhatsApp
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = selectElem.value;
@@ -417,9 +417,16 @@
           origin: { y: 0.6 }
         });
         document.getElementById('rsvp-success').style.display = 'block';
+
+        // Envio para o WhatsApp
+        const phoneNumber = "5511954575058";
+        const message = `Olá! Confirmando a presença de *${name}* no Aniversário de 3 Anos da Thalia! 🎈🎉`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
         setTimeout(() => {
+          window.open(whatsappUrl, '_blank');
           document.getElementById('rsvp-success').style.display = 'none';
-        }, 5000);
+        }, 1500);
       }
     });
 
