@@ -364,13 +364,15 @@
       "Renato Peres", "José Luiz", "Giovana"
     ];
 
-    // Carregar convidados no Select ao carregar a página
-    const selectElem = document.getElementById('guest-select');
-    guests.forEach(guest => {
-      const option = document.createElement('option');
-      option.value = guest;
-      option.textContent = guest;
-      selectElem.appendChild(option);
+    // Carregar convidados no Select com segurança após renderização do DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectElem = document.getElementById('guest-select');
+      guests.forEach(guest => {
+        const option = document.createElement('option');
+        option.value = guest;
+        option.textContent = guest;
+        selectElem.appendChild(option);
+      });
     });
 
     // Gerador de Balões Animados
@@ -407,12 +409,13 @@
       }
     }, 2000);
 
-    // RSVP Submit com integração para o WhatsApp
+    // RSVP Submit otimizado sem bloqueador de pop-up
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
       e.preventDefault();
+      const selectElem = document.getElementById('guest-select');
       const name = selectElem.value;
+      
       if (name) {
-        // Dispara explosão de confetes ao confirmar
         if (typeof confetti === "function") {
           confetti({
             particleCount: 100,
@@ -423,17 +426,13 @@
         
         document.getElementById('rsvp-success').style.display = 'block';
 
-        const phoneNumbers = ["5511954575058", "5511930095084"];
+        const mainPhone = "5511954575058";
         const message = `Olá! Confirmando a presença de *${name}* no Aniversário de 3 Anos da Thalia! 🎈🎉`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${mainPhone}&text=${encodeURIComponent(message)}`;
 
         setTimeout(() => {
-          phoneNumbers.forEach(phone => {
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-          });
-
-          document.getElementById('rsvp-success').style.display = 'none';
-        }, 1500);
+          window.location.href = whatsappUrl;
+        }, 1200);
       }
     });
 
@@ -448,7 +447,7 @@
     }
 
     function copyPix() {
-      const pixKey = "11954575058";
+      const pixKey = "40863199852";
       navigator.clipboard.writeText(pixKey).then(() => {
         alert("Chave PIX copiada: " + pixKey);
       }).catch(() => {
