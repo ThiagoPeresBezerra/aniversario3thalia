@@ -418,14 +418,18 @@
         });
         document.getElementById('rsvp-success').style.display = 'block';
 
-        // Envio para o WhatsApp
-        const phoneNumber = "5511954575058";
-        const message = `Olá! Confirmando a presença de *${name}* no Aniversário de 3 Anos da Thalia! 🎈🎉`;
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+       // Envio para o WhatsApp (Dois Números)
+const phoneNumbers = ["5511954575058", "5511930095084"];
+const message = `Olá! Confirmando a presença de *${name}* no Aniversário de 3 Anos da Thalia! 🎈🎉`;
 
-        setTimeout(() => {
-          window.open(whatsappUrl, '_blank');
-          document.getElementById('rsvp-success').style.display = 'none';
+setTimeout(() => {
+  phoneNumbers.forEach(phone => {
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  });
+
+  document.getElementById('rsvp-success').style.display = 'none';
+}, 1000); // Exemplo de tempo no setTimeout
         }, 1500);
       }
     });
