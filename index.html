@@ -30,7 +30,6 @@
       padding-bottom: 50px;
     }
 
-    /* Container de Balões Flutuantes */
     .balloons-container {
       position: fixed;
       top: 0;
@@ -67,7 +66,6 @@
       100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
     }
 
-    /* Layout do Conteúdo */
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -124,7 +122,6 @@
       font-size: 1.8rem;
     }
 
-    /* Formulário RSVP */
     .form-group {
       margin-bottom: 15px;
     }
@@ -163,7 +160,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    /* Nova Lista de Presentes em Imagens */
     .gifts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -205,7 +201,6 @@
       width: 100%;
     }
 
-    /* Modal de Pagamento */
     .modal {
       display: none;
       position: fixed;
@@ -246,8 +241,12 @@
       border-radius: 10px;
       word-break: break-all;
       margin: 10px 0;
-      font-weight: bold;
-      text-align: center;
+      font-weight: normal;
+      font-size: 0.8rem;
+      font-family: monospace;
+      text-align: left;
+      max-height: 80px;
+      overflow-y: auto;
     }
 
     .alert-success {
@@ -268,6 +267,13 @@
       background: #FFF9E6;
       padding: 10px;
       border-radius: 8px;
+    }
+
+    .price-tag {
+      color: var(--verde);
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -303,118 +309,141 @@
       <p style="text-align: center; color: #666; margin-bottom: 15px;">Selecionamos alguns presentes que fariam nossa amada Thalia muito feliz:</p>
       
       <div class="gifts-grid">
-        <div class="gift-card" onclick="openPayment('Presente Especial 1')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 1', 50.00)">
           <img src="image1.png" alt="Opção de Presente 1">
+          <div class="price-tag">R$ 50,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 2')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 2', 75.00)">
           <img src="image2.png" alt="Opção de Presente 2">
+          <div class="price-tag">R$ 75,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 3')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 3', 100.00)">
           <img src="image3.png" alt="Opção de Presente 3">
+          <div class="price-tag">R$ 100,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 4')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 4', 60.00)">
           <img src="image4.png" alt="Opção de Presente 4">
+          <div class="price-tag">R$ 60,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 5')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 5', 80.00)">
           <img src="image5.png" alt="Opção de Presente 5">
+          <div class="price-tag">R$ 80,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 6')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 6', 120.00)">
           <img src="image6.png" alt="Opção de Presente 6">
+          <div class="price-tag">R$ 120,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 7')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 7', 45.00)">
           <img src="image7.png" alt="Opção de Presente 7">
+          <div class="price-tag">R$ 45,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 8')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 8', 90.00)">
           <img src="image8.png" alt="Opção de Presente 8">
+          <div class="price-tag">R$ 90,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 9')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 9', 150.00)">
           <img src="image9.png" alt="Opção de Presente 9">
+          <div class="price-tag">R$ 150,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 10')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 10', 55.00)">
           <img src="image10.png" alt="Opção de Presente 10">
+          <div class="price-tag">R$ 55,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 11')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 11', 70.00)">
           <img src="image11.png" alt="Opção de Presente 11">
+          <div class="price-tag">R$ 70,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 12')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 12', 110.00)">
           <img src="image12.png" alt="Opção de Presente 12">
+          <div class="price-tag">R$ 110,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 13')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 13', 65.00)">
           <img src="image13.png" alt="Opção de Presente 13">
+          <div class="price-tag">R$ 65,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 14')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 14', 85.00)">
           <img src="image14.png" alt="Opção de Presente 14">
+          <div class="price-tag">R$ 85,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 15')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 15', 130.00)">
           <img src="image15.png" alt="Opção de Presente 15">
+          <div class="price-tag">R$ 130,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 16')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 16', 40.00)">
           <img src="image16.png" alt="Opção de Presente 16">
+          <div class="price-tag">R$ 40,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 17')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 17', 95.00)">
           <img src="image17.png" alt="Opção de Presente 17">
+          <div class="price-tag">R$ 95,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 18')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 18', 140.00)">
           <img src="image18.png" alt="Opção de Presente 18">
+          <div class="price-tag">R$ 140,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 19')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 19', 50.00)">
           <img src="image19.png" alt="Opção de Presente 19">
+          <div class="price-tag">R$ 50,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 20')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 20', 75.00)">
           <img src="image20.png" alt="Opção de Presente 20">
+          <div class="price-tag">R$ 75,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 21')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 21', 100.00)">
           <img src="image21.png" alt="Opção de Presente 21">
+          <div class="price-tag">R$ 100,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 22')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 22', 160.00)">
           <img src="image22.png" alt="Opção de Presente 22">
+          <div class="price-tag">R$ 160,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Presente Especial 23')">
+        <div class="gift-card" onclick="openPayment('Presente Especial 23', 200.00)">
           <img src="image23.png" alt="Opção de Presente 23">
+          <div class="price-tag">R$ 200,00</div>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
       </div>
@@ -429,25 +458,25 @@
     <div class="modal-content">
       <span class="close-modal" onclick="closePayment()">&times;</span>
       <h2 id="modal-title" style="font-size: 1.4rem;">Presentear</h2>
-      <p style="text-align: center; margin-bottom: 10px;">Pagamento via Mercado Pago</p>
+      <p style="text-align: center; margin-bottom: 5px; color: #555;">Valor do Presente: <strong id="modal-amount" style="color: var(--verde);">R$ 0,00</strong></p>
+      <p style="text-align: center; margin-bottom: 15px; font-size: 0.85rem; color: #888;">Pagamento via Mercado Pago</p>
       
-      <p><strong>Opção 1: PIX (Instantâneo)</strong></p>
-      <p style="font-size: 0.9rem; color: #555;">Chave Pix (Telefone):</p>
-      <div class="pix-box" id="pix-key">(11)954575058</div>
-      <button onclick="copyPix()" style="padding: 8px; font-size: 0.9rem; margin-bottom: 15px; background: var(--lilas);">Copiar Chave PIX 📋</button>
+      <p><strong>Pix Copia e Cola (Valor Fixo)</strong></p>
+      <p style="font-size: 0.85rem; color: #555;">Copie o código abaixo e cole no app do seu banco na opção <strong>Pix Copia e Cola</strong>:</p>
+      <div class="pix-box" id="pix-key">Carregando código Pix...</div>
+      <button onclick="copyPix()" style="padding: 10px; font-size: 0.95rem; margin-bottom: 15px; background: var(--lilas);">Copiar Pix Copia e Cola 📋</button>
 
       <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
 
-      <p><strong>Opção 2: Cartão de Crédito</strong></p>
+      <p><strong>Opção de Cartão de Crédito</strong></p>
       <div class="card-info">
         💳 <strong>Parcelamento em até 3x</strong><br>
-        Para pagar no cartão, utilize a opção "Enviar Dinheiro" ou "Pagar via Pix no Cartão" pelo aplicativo do seu banco ou do próprio Mercado Pago utilizando a chave Pix acima.
+        Para pagar com cartão, acesse o app do seu banco ou Mercado Pago, vá em "Pix no Cartão" e cole o código Pix gerado acima.
       </div>        
     </div>
   </div>
   
   <script>
-    // Lista exata de convidados fornecida (mantendo a ordem original)
     const guests = [
       "Raquel", "Ronaldo", "Nathânia", "Robson", "Ronnie", "Maria", 
       "Viviane", "Marcio", "Davi", "Aline", "Renato", "Felipe", 
@@ -457,7 +486,6 @@
       "Renato Peres", "José Luiz", "Giovana"
     ];
 
-    // Carregar convidados no Select com segurança após renderização do DOM
     document.addEventListener('DOMContentLoaded', () => {
       const selectElem = document.getElementById('guest-select');
       guests.forEach(guest => {
@@ -468,7 +496,6 @@
       });
     });
 
-    // Gerador de Balões Animados
     const balloonColors = ['#FF66B2', '#C71585', '#FFD700', '#50C878', '#00BFFF'];
     const balloonsContainer = document.getElementById('balloons');
 
@@ -482,7 +509,6 @@
       balloonsContainer.appendChild(balloon);
     }
 
-    // Efeito de Confetes Contínuo suave
     setInterval(() => {
       if (typeof confetti === "function") {
         confetti({
@@ -502,7 +528,6 @@
       }
     }, 2000);
 
-    // RSVP Submit otimizado sem bloqueador de pop-up
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const selectElem = document.getElementById('guest-select');
@@ -529,9 +554,59 @@
       }
     });
 
-    // Modal de Pagamento
-    function openPayment(item) {
+    let currentPixCode = "";
+
+    function crc16(buffer) {
+      let crc = 0xFFFF;
+      for (let i = 0; i < buffer.length; i++) {
+        crc ^= buffer.charCodeAt(i) << 8;
+        for (let j = 0; j < 8; j++) {
+          if ((crc & 0x8000) !== 0) {
+            crc = (crc << 1) ^ 0x1021;
+          } else {
+            crc = crc << 1;
+          }
+        }
+      }
+      return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+    }
+
+    function generatePixPayload(key, name, city, amount, txtId) {
+      const formattedAmount = Number(amount).toFixed(2);
+      
+      const merchantAccountInfo = 
+        '0014BR.GOV.BCB.PIX' +
+        '01' + String(key.length).padStart(2, '0') + key;
+
+      let payload = 
+        '000201' +
+        '26' + String(merchantAccountInfo.length).padStart(2, '0') + merchantAccountInfo +
+        '52040000' +
+        '5303986' +
+        '54' + String(formattedAmount.length).padStart(2, '0') + formattedAmount +
+        '5802BR' +
+        '59' + String(name.length).padStart(2, '0') + name +
+        '60' + String(city.length).padStart(2, '0') + city;
+
+      const additionalData = '05' + String(txtId.length).padStart(2, '0') + txtId;
+      payload += '62' + String(additionalData.length).padStart(2, '0') + additionalData;
+      payload += '6304';
+
+      return payload + crc16(payload);
+    }
+
+    function openPayment(item, amount) {
       document.getElementById('modal-title').textContent = item;
+      document.getElementById('modal-amount').textContent = `R$ ${amount.toFixed(2).replace('.', ',')}`;
+      
+      const pixKey = "+5511954575058";
+      const receiverName = "THALIA";
+      const receiverCity = "SAO PAULO";
+      const transactionId = "THALIA3ANOS";
+
+      currentPixCode = generatePixPayload(pixKey, receiverName, receiverCity, amount, transactionId);
+      
+      document.getElementById('pix-key').textContent = currentPixCode;
       document.getElementById('payment-modal').style.display = 'flex';
     }
 
@@ -540,11 +615,11 @@
     }
 
     function copyPix() {
-      const pixKey = "11954575058";
-      navigator.clipboard.writeText(pixKey).then(() => {
-        alert("Chave PIX copiada: " + pixKey);
+      if (!currentPixCode) return;
+      navigator.clipboard.writeText(currentPixCode).then(() => {
+        alert("Código Pix Copia e Cola copiado para a área de transferência!");
       }).catch(() => {
-        alert("Chave PIX: " + pixKey);
+        alert("Não foi possível copiar automaticamente. Selecione o texto e copie manualmente.");
       });
     }
   </script>
