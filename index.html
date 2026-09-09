@@ -24,6 +24,34 @@
      font-weight: bold;
     }
 
+    /* Tamanho padrão para computadores */
+body {
+  font-size: 16px;
+}
+
+p {
+  font-size: 1rem; /* Equivalente a 16px */
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+/* Ajusta o tamanho especificamente para celulares (telas até 768px de largura) */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  p {
+    font-size: 1rem; /* 16px no mobile para leitura confortável */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Reduz o título para não quebrar o layout */
+  }
+}
+
     body {
       background-color: var(--fundo);
       color: #333;
@@ -407,7 +435,7 @@
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('onjunto meia estação - kit', 165.00)">
+        <div class="gift-card" onclick="openPayment('Conjunto meia estação - kit', 165.00)">
           <img src="image10.png" alt="Opção de Presente 10">
           <div class="price-tag">R$ 165,00</div>
           <p>Conjunto meia estação - kit</p>
@@ -421,45 +449,45 @@
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('Brinquedo- Sorveteira colorida Play Doh', 118.00)">
+        <div class="gift-card" onclick="openPayment('Brinquedo Família Hayley', 75.00)">
           <img src="image12.png" alt="Opção de Presente 12">
+          <div class="price-tag">R$ 75,00</div>
+          <p>Brinquedo Família Hayley</p>
+          <button class="btn-presentear">Presentear 🎁</button>
+        </div>
+
+        <div class="gift-card" onclick="openPayment('Brinquedo- Sorveteira colorida Play Doh', 118.00)">
+          <img src="image13.png" alt="Opção de Presente 13">
           <div class="price-tag">R$ 118,00</div>
           <p>Brinquedo- Sorveteira colorida Play Doh</p>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
         <div class="gift-card" onclick="openPayment('Brinquedo- Pepa vai à escola', 116.00)">
-          <img src="image13.png" alt="Opção de Presente 13">
+          <img src="image14.png" alt="Opção de Presente 14">
           <div class="price-tag">R$ 116,00</div>
           <p>Brinquedo- Pepa vai à escola</p>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
         <div class="gift-card" onclick="openPayment('Conjunto meia estação- kit', 158.00)">
-          <img src="image14.png" alt="Opção de Presente 14">
+          <img src="image15.png" alt="Opção de Presente 15">
           <div class="price-tag">R$ 158,00</div>
           <p>Conjunto meia estação- kit</p>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
         <div class="gift-card" onclick="openPayment('Conjunto camiseta e short - kit', 136.00)">
-          <img src="image15.png" alt="Opção de Presente 15">
-          <div class="price-tag">R$ 130,00</div>
+          <img src="image16.png" alt="Opção de Presente 16">
+          <div class="price-tag">R$ 136,00</div>
           <p>Conjunto camiseta e short - kit</p>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
-        <div class="gift-card" onclick="openPayment('rinquedo - Mini Mundo Polly', 138.00)">
-          <img src="image16.png" alt="Opção de Presente 16">
-          <div class="price-tag">R$ 138,00</div>
-          <p>Brinquedo - Mini Mundo Polly</p>
-          <button class="btn-presentear">Presentear 🎁</button>
-        </div>
-
-        <div class="gift-card" onclick="openPayment('Brinquedo- Fazendinha de montar', 235.00)">
+        <div class="gift-card" onclick="openPayment('Brinquedo Fazendinha de montar', 235.00)">
           <img src="image17.jpeg" alt="Opção de Presente 17">
           <div class="price-tag">R$ 235,00</div>
-          <p>Brinquedo- Fazendinha de montar</p>
+          <p>Brinquedo Fazendinha de montar</p>
           <button class="btn-presentear">Presentear 🎁</button>
         </div>
 
