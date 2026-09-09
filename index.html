@@ -477,7 +477,7 @@
   </div>
 
   <footer style="text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid #eaeaea; color: #666; font-size: 14px;">
-    <p>&copy; 2026 Spectrum TTT. Todos os direitos reservados.</p>
+    <p>&copy; 2026 SpectrumT3 - Thiago Peres Bezerra. Todos os direitos reservados.</p>
   </footer>
 
   <div class="modal" id="payment-modal">
@@ -485,7 +485,7 @@
       <span class="close-modal" onclick="closePayment()">&times;</span>
       <h2 id="modal-title" style="font-size: 1.4rem;">Presentear</h2>
       <p style="text-align: center; margin-bottom: 5px; color: #555;">Valor do Presente: <strong id="modal-amount" style="color: var(--verde);">R$ 0,00</strong></p>
-      <p style="text-align: center; margin-bottom: 15px; font-size: 0.85rem; color: #888;">Pagamento via Mercado Pago</p>
+      <p style="text-align: center; margin-bottom: 15px; font-size: 0.85rem; color: #888;">Pagamento via Pix</p>
       
       <p><strong>Pix Copia e Cola (Valor Fixo)</strong></p>
       <p style="font-size: 0.85rem; color: #555;">Copie o código abaixo e cole no app do seu banco na opção <strong>Pix Copia e Cola</strong>:</p>
@@ -625,10 +625,10 @@
       document.getElementById('modal-title').textContent = item;
       document.getElementById('modal-amount').textContent = `R$ ${amount.toFixed(2).replace('.', ',')}`;
       
-      const pixKey = "+5511954575058";
-      const receiverName = "THALIA";
+      const pixKey = "40863199852";
+      const receiverName = "THIAGO";
       const receiverCity = "SAO PAULO";
-      const transactionId = "THALIA3ANOS";
+      const transactionId = "THIAGOPERESBEZERRA";
 
       currentPixCode = generatePixPayload(pixKey, receiverName, receiverCity, amount, transactionId);
       
